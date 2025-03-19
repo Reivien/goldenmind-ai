@@ -2,18 +2,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Bitcoin, 
-  CreditCard, 
-  DollarSign, 
   Facebook, 
   Instagram, 
   Linkedin, 
   Twitter, 
-  Youtube, 
-  Github, 
-  Euro, 
-  Wallet, 
-  ShieldCheck 
+  CreditCard,
+  DollarSign,
+  Wallet
 } from 'lucide-react';
 
 interface LogoItemProps {
@@ -36,16 +31,11 @@ const LogoCarousel: React.FC = () => {
   const logos: LogoItemProps[] = [
     { icon: Facebook, name: 'Facebook' },
     { icon: Instagram, name: 'Instagram' },
-    { icon: Twitter, name: 'Twitter' },
+    { icon: Twitter, name: 'X' },
     { icon: Linkedin, name: 'LinkedIn' },
-    { icon: Youtube, name: 'YouTube' },
-    { icon: Github, name: 'GitHub' },
-    { icon: Bitcoin, name: 'Bitcoin' },
-    { icon: CreditCard, name: 'Credit Card' },
-    { icon: DollarSign, name: 'USD' },
-    { icon: Euro, name: 'Euro' },
-    { icon: Wallet, name: 'Wallet' },
-    { icon: ShieldCheck, name: 'Secure Payment' },
+    { icon: CreditCard, name: 'PayPal' },
+    { icon: Wallet, name: 'Stripe' },
+    { icon: DollarSign, name: 'Square' },
   ];
 
   return (
