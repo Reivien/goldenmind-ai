@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { ArrowRight, Monitor, MessageSquare, Users, PhoneCall, MessageCircle, Mic } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LogoCarousel from '../components/LogoCarousel';
+import Header from '../components/Header';
 
 export default function Home() {
   const [ref, inView] = useInView({
@@ -22,6 +23,8 @@ export default function Home() {
 
   return (
     <div className="relative bg-black text-white">
+      <Header />
+      
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-4 pt-20">
         <div className="text-center max-w-4xl mx-auto">
