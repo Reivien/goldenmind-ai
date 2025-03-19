@@ -5,6 +5,7 @@ import { ArrowRight, Monitor, MessageSquare, Users, PhoneCall, MessageCircle, Mi
 import { Link } from 'react-router-dom';
 import LogoCarousel from '../components/LogoCarousel';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [ref, inView] = useInView({
@@ -92,6 +93,9 @@ export default function Home() {
 
       {/* Logo Carousel */}
       <LogoCarousel />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
