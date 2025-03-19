@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import LogoCarousel from '../components/LogoCarousel';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ParallaxBackground from '../components/ParallaxBackground';
 
 export default function Home() {
   const [ref, inView] = useInView({
@@ -24,10 +25,11 @@ export default function Home() {
 
   return (
     <div className="relative bg-black text-white">
+      <ParallaxBackground />
       <Header />
       
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 pt-20">
+      <section className="min-h-screen flex items-center justify-center px-4 pt-20 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +63,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section ref={ref} className="py-20 px-4">
+      <section ref={ref} className="py-20 px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
