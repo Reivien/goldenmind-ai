@@ -37,7 +37,7 @@ export default function Header() {
   }}>
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
-          <NavLink to="/" className="text-2xl font-bold text-gold-400">GoldMind AI</NavLink>
+          <NavLink to="/" className="text-2xl font-bold text-gold-400">GoldenMind AI</NavLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
