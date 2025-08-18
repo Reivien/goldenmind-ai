@@ -1,6 +1,14 @@
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 export default function Footer() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return <footer className="bg-black/50 backdrop-blur-lg border-t border-gold-600/20 mt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -11,21 +19,39 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-gold-400 mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Plans', 'Contact'].map(item => <li key={item}>
-                  <Link to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="text-gray-400 hover:text-gold-400 transition-colors">
-                    {item}
-                  </Link>
-                </li>)}
+              {[
+                { name: 'Home', id: 'home' },
+                { name: 'About', id: 'about' },
+                { name: 'Services', id: 'services' },
+                { name: 'Plans', id: 'plans' },
+                { name: 'Contact', id: 'contact' }
+              ].map(item => 
+                <li key={item.name}>
+                  <a 
+                    href={`#${item.id}`} 
+                    onClick={(e) => handleNavClick(e, item.id)}
+                    className="text-gray-400 hover:text-gold-400 transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           <div>
             <h4 className="text-lg font-semibold text-gold-400 mb-4">Services</h4>
             <ul className="space-y-2">
-              {['Website Design', 'Review Requests', 'Lead Capture', 'Webchat', 'Call Follow Up', 'AI Voice'].map(service => <li key={service}>
-                  <Link to="/services" className="text-gray-400 hover:text-gold-400 transition-colors">
+              {['Website Design', 'Review Requests', 'Lead Capture', 'Webchat', 'Call Follow Up', 'AI Voice'].map(service => 
+                <li key={service}>
+                  <a 
+                    href="#services" 
+                    onClick={(e) => handleNavClick(e, 'services')}
+                    className="text-gray-400 hover:text-gold-400 transition-colors"
+                  >
                     {service}
-                  </Link>
-                </li>)}
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           <div>
