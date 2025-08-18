@@ -29,7 +29,7 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 pt-20 relative z-10">
+      <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section ref={ref} className="py-20 px-4 relative z-10">
+      <section id="services" ref={ref} className="py-20 px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 relative z-10">
+      <section id="about" className="py-20 px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* Plans Section */}
-      <section className="py-20 px-4 relative z-10 bg-gradient-to-b from-transparent to-gray-900/50">
+      <section id="plans" className="py-20 px-4 relative z-10 bg-gradient-to-b from-transparent to-gray-900/50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -306,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 relative z-10">
+      <section id="contact" className="py-20 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

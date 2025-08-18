@@ -13,21 +13,31 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const navItems = [{
-    path: '/',
+    path: '#home',
     label: 'Home'
   }, {
-    path: '/about',
+    path: '#about',
     label: 'About'
   }, {
-    path: '/services',
+    path: '#services',
     label: 'Services'
   }, {
-    path: '/plans',
+    path: '#plans',
     label: 'Plans'
   }, {
-    path: '/contact',
+    path: '#contact',
     label: 'Contact'
   }];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    const targetId = path.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
   return <motion.header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`} initial={{
     y: -100
   }} animate={{
@@ -41,11 +51,16 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(item => <NavLink key={item.path} to={item.path} className={({
-            isActive
-          }) => `text-white hover:text-gold-400 transition-colors ${isActive ? 'text-gold-400' : ''}`}>
+            {navItems.map(item => 
+              <a 
+                key={item.path} 
+                href={item.path} 
+                onClick={(e) => handleNavClick(e, item.path)}
+                className="text-white hover:text-gold-400 transition-colors"
+              >
                 {item.label}
-              </NavLink>)}
+              </a>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,11 +81,16 @@ export default function Header() {
         y: -20
       }}>
             <div className="container mx-auto px-4 py-4">
-              {navItems.map(item => <NavLink key={item.path} to={item.path} className={({
-            isActive
-          }) => `block py-3 text-white hover:text-gold-400 transition-colors ${isActive ? 'text-gold-400' : ''}`} onClick={() => setIsMenuOpen(false)}>
+              {navItems.map(item => 
+                <a 
+                  key={item.path} 
+                  href={item.path} 
+                  onClick={(e) => handleNavClick(e, item.path)}
+                  className="block py-3 text-white hover:text-gold-400 transition-colors"
+                >
                   {item.label}
-                </NavLink>)}
+                </a>
+              )}
             </div>
           </motion.div>}
       </div>
